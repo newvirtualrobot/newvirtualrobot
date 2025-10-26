@@ -32,12 +32,14 @@ jobs:
 
       # A partir daqui, a gente faz o publish manualmente sem worktree
       - name: Deploy to gh-pages
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
             # configura git para commit automatizado
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            # se ainda não existe branch gh-pages no remoto, cria baseando na main
+            # se ainda não existe branch gh-pages no remoto, cria
             if ! git ls-remote --exit-code origin gh-pages; then
             echo "gh-pages não existe ainda, criando..."
             git checkout --orphan gh-pages
@@ -45,7 +47,7 @@ jobs:
             echo "<html><body>init</body></html>" > index.html
             git add index.html
             git commit -m "init gh-pages"
-            git push origin gh-pages
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
             git checkout main
             fi
 
@@ -58,9 +60,9 @@ jobs:
             git init
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git remote add origin https://github.com/TGalter/autopost-site.git
             git checkout -b gh-pages
-
             git add .
             git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-            git push --force origin gh-pages
+
+            # push forçado pro branch gh-pages usando token
+            git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
