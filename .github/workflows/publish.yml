@@ -33,18 +33,26 @@ jobs:
 
       - name: Publish to gh-pages
         run: |
-          # cria/atualiza um worktree separado para gh-pages
-          rm -rf deploy
-          git fetch origin gh-pages || true
-          git worktree add deploy gh-pages || git worktree add deploy -b gh-pages
-          
-          # limpa branch de deploy e copia conteúdo final do site
-          rm -rf deploy/*
-          cp -r public/* deploy/
+            # limpa qualquer worktree residual
+            git worktree prune
+            rm -rf deploy
 
-          cd deploy
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "nada pra commitar"
-          git push origin gh-pages
+            # busca branch gh-pages (se existir)
+            git fetch origin gh-pages || true
+
+            # deleta branch local se existir (evita conflito)
+            git branch -D gh-pages || true
+
+            # cria um worktree limpo
+            git worktree add deploy gh-pages || git worktree add deploy -b gh-pages
+
+            # limpa conteúdo anterior e copia o novo
+            rm -rf deploy/*
+            cp -r public/* deploy/
+
+            cd deploy
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "nada pra commitar"
+            git push origin gh-pages
