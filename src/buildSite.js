@@ -247,7 +247,7 @@ async function loadExistingPostsMeta() {
 
     meta.push({
       title,
-      url: "/posts/" + file,
+      url: "/autopost-site/posts/" + file,
       dateISO,
       dateHuman,
     });
