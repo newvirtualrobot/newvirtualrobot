@@ -67,4 +67,4 @@ jobs:
           git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
           # push forçado (branch gh-pages = site pronto)
-          git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
+          git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/newvirtualrobot/newvirtualrobot.githttps://x-access-token:${GITHUB_TOKEN}@github.com/newvirtualrobot/newvirtualrobot.git gh-pages
