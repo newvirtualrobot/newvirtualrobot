@@ -6,7 +6,6 @@
   <title>{{PAGE_TITLE}}</title>
   <meta name="description" content="{{PAGE_DESCRIPTION}}" />
   <link rel="canonical" href="{{CANONICAL_URL}}" />
-
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -26,6 +25,10 @@
       color: #444;
       text-decoration: none;
     }
+    header nav a {
+      margin-right: 8px;
+      font-size: 0.85rem;
+    }
     h1 {
       font-size: 1.6rem;
       line-height: 1.3;
@@ -43,37 +46,19 @@
       color: #777;
       margin-bottom: 20px;
     }
-    nav a {
-      margin-right: 8px;
-      font-size: 0.85rem;
-    }
-
-    /* bloco de anúncio placeholder */
     .ad-placeholder {
       border: 1px solid #ddd;
       background: #fafafa;
       font-size: .8rem;
-      color: #555;
       text-align: center;
       padding: 16px;
       margin: 24px 0;
-      line-height: 1.4;
+      color: #555;
     }
-    .ad-placeholder small {
-      color: #888;
-      font-size: .7rem;
-      display: block;
-      margin-top: 8px;
-    }
-
-    footer {
-      border-top: 1px solid #eee;
-      padding-top: 16px;
-      margin-top: 32px;
+    footer .footer-row {
+      margin-bottom: 6px;
     }
   </style>
-
-  {{EXTRA_HEAD}}
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4J2FERV1H"></script>
@@ -83,33 +68,32 @@
     gtag('js', new Date());
     gtag('config', 'G-L4J2FERV1H');
   </script>
+
+  {{EXTRA_HEAD}}
 </head>
 <body>
   <header>
     <nav>
-      <a href="/autopost-site/index.html">Início</a> ·
-      <a href="/autopost-site/about.html">Sobre</a> ·
-      <a href="/autopost-site/privacy.html">Privacidade</a>
+      {{NAV_LINKS}}
     </nav>
   </header>
 
   <main>
     {{CONTENT_TOP}}
 
-    <!-- Espaço visual para anúncio -->
     <div class="ad-placeholder">
       Espaço reservado para anúncio
-      <small>Este bloco será preenchido automaticamente após aprovação no Google AdSense.</small>
     </div>
 
     {{CONTENT_BOTTOM}}
   </main>
 
   <footer>
-    <div>© <span id="year"></span> {{SITE_NAME}}. Todos os direitos reservados.</div>
-    <div>
-      <a href="/autopost-site/sitemap.xml">Sitemap</a> ·
-      <a href="/autopost-site/rss.xml">RSS</a>
+    <div class="footer-row">© <span id="year"></span> {{SITE_NAME}}. Todos os direitos reservados.</div>
+    <div class="footer-row">
+      <a href="{{FOOTER_SITEMAP}}">Sitemap</a> ·
+      <a href="{{FOOTER_RSS}}">RSS</a> ·
+      <a href="{{FOOTER_PRIVACY}}">Privacidade</a>
     </div>
   </footer>
 

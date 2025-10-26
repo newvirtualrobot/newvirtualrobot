@@ -44,13 +44,34 @@ async function getNextKeyword() {
 }
 
 // monta uma página de post completa (HTML final)
-function renderFullPage(baseTpl, innerHtml, { title, desc, canonicalUrl }) {
+function renderFullPage(baseTpl, innerHtml, {
+  title,
+  desc,
+  canonicalUrl,
+  isPost
+}) {
+  const navLinks = isPost
+    ? `<a href="../index.html">Início</a> ·
+       <a href="../about.html">Sobre</a> ·
+       <a href="../privacy.html">Privacidade</a>`
+    : `<a href="./index.html">Início</a> ·
+       <a href="./about.html">Sobre</a> ·
+       <a href="./privacy.html">Privacidade</a>`;
+
+  const footer_sitemap = isPost ? "../sitemap.xml" : "./sitemap.xml";
+  const footer_rss     = isPost ? "../rss.xml"     : "./rss.xml";
+  const footer_privacy = isPost ? "../privacy.html": "./privacy.html";
+
   return baseTpl
     .replace("{{PAGE_TITLE}}", escapeHtml(title))
     .replace("{{PAGE_DESCRIPTION}}", escapeHtml(desc || title))
     .replace("{{CANONICAL_URL}}", canonicalUrl)
     .replace("{{SITE_NAME}}", escapeHtml(SITE_NAME))
-    .replace("{{EXTRA_HEAD}}", "") // placeholder p/ AdSense <script> global ou Analytics depois
+    .replace("{{EXTRA_HEAD}}", "")
+    .replace("{{NAV_LINKS}}", navLinks)
+    .replace("{{FOOTER_SITEMAP}}", footer_sitemap)
+    .replace("{{FOOTER_RSS}}", footer_rss)
+    .replace("{{FOOTER_PRIVACY}}", footer_privacy)
     .replace("{{CONTENT_TOP}}", innerHtml)
     .replace("{{CONTENT_BOTTOM}}", "");
 }
@@ -77,10 +98,11 @@ async function buildIndex(postsMeta, baseTpl) {
 </section>`;
 
   const full = renderFullPage(baseTpl, inner, {
-    title: "Início",
-    desc: "Artigos recentes",
-    canonicalUrl: SITE_URL + "/index.html",
-  });
+  title: "Início",
+  desc: "Artigos recentes",
+  canonicalUrl: SITE_URL + "/index.html",
+  isPost: false
+});
 
   await fs.writeFile(path.join(PUBLIC_DIR, "index.html"), full, "utf8");
 }
@@ -276,6 +298,7 @@ async function main() {
     title: postTitle,
     desc: postTitle,
     canonicalUrl: `${SITE_URL}/posts/${slug}.html`,
+    isPost: true
   });
 
   // 9. salva post individual
