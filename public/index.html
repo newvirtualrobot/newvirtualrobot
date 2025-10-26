@@ -21,6 +21,16 @@
   .footer-row { margin-bottom: 0.5rem; }
   </style>
 
+  <!-- Dark mode support (minimal) -->
+  <style>
+    :root { color-scheme: light dark; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0b0b0b; color: #e6e6e6; }
+      .card, .ad-placeholder { background: #111; color: #ddd; border-color: #222; }
+      a { color: #7bd389; }
+    }
+  </style>
+
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9PPTW25BB3"></script>
 <script>
@@ -51,12 +61,17 @@
   <ul style="list-style:none;padding-left:0;">
     
 <li>
+  <a href="/posts/trafego-pago-vs-trafego-organico-qual-a-melhor-estrategia-para-o-seu-negocio.html">Tráfego Pago vs. Tráfego Orgânico: Qual a Melhor Estratégia para o Seu Negócio?</a>
+  <div style="font-size:.8rem;color:#555;">26 de outubro de 2025</div>
+</li>
+
+<li>
   <a href="/posts/negocios-online-rentaveis-seu-guia-para-o-sucesso-digital.html">Negócios Online Rentáveis: Seu Guia para o Sucesso Digital</a>
   <div style="font-size:.8rem;color:#555;">26 de outubro de 2025</div>
 </li>
 
 <li>
-  <a href="/posts/trafego-pago-vs-trafego-organico-qual-a-melhor-estrategia-para-o-seu-negocio.html">Tráfego Pago vs. Tráfego Orgânico: Qual a Melhor Estratégia para o Seu Negócio?</a>
+  <a href="/posts/o-potencial-transformador-das-vendas-online-e-do-e-commerce.html">O Potencial Transformador das Vendas Online e do E-commerce</a>
   <div style="font-size:.8rem;color:#555;">26 de outubro de 2025</div>
 </li>
 
@@ -77,9 +92,11 @@
   </ul>
 </section>
 
-    <div class="ad-placeholder">
-      Espaço reservado para anúncio
-    </div>
+    <aside class="card" role="complementary" aria-label="Anúncio">
+      <div class="card-content">
+        Espaço reservado para anúncio
+      </div>
+    </aside>
 
     
   </main>
