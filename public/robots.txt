@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tgalter.github.io/autopost-site/sitemap.xml
+Sitemap: https://newvirtualrobot.github.io/sitemap.xml

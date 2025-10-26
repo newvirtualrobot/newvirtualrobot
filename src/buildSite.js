@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // CONFIG BÁSICA DO SITE
-const SITE_URL = "https://tgalter.github.io/autopost-site";
+const SITE_URL = "https://newvirtualrobot.github.io";
 const SITE_NAME = "autopost-site";
 const PUBLIC_DIR = path.join(__dirname, "..", "public");
 const POSTS_DIR = path.join(PUBLIC_DIR, "posts");
@@ -247,7 +247,7 @@ async function loadExistingPostsMeta() {
 
     meta.push({
       title,
-      url: "/autopost-site/posts/" + file,
+      url: "/posts/" + file,
       dateISO,
       dateHuman,
     });
