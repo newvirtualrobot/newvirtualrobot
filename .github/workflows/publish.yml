@@ -2,8 +2,7 @@ name: Build and Publish Daily
 
 on:
   schedule:
-    # roda todo dia às 06:00 UTC (03:00 São Paulo)
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * *"  # todo dia às 06:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -11,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -31,28 +30,36 @@ jobs:
         run: |
           npm run build-site
 
-      - name: Publish to gh-pages
+      # A partir daqui, a gente faz o publish manualmente sem worktree
+      - name: Deploy to gh-pages
         run: |
-            # limpa qualquer worktree residual
-            git worktree prune
-            rm -rf deploy
+          # configura git para commit automatizado
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            # busca branch gh-pages (se existir)
-            git fetch origin gh-pages || true
-
-            # deleta branch local se existir (evita conflito)
-            git branch -D gh-pages || true
-
-            # cria um worktree limpo
-            git worktree add deploy gh-pages || git worktree add deploy -b gh-pages
-
-            # limpa conteúdo anterior e copia o novo
-            rm -rf deploy/*
-            cp -r public/* deploy/
-
-            cd deploy
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add .
-            git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "nada pra commitar"
+          # se ainda não existe branch gh-pages no remoto, cria baseando na main
+          if ! git ls-remote --exit-code origin gh-pages; then
+            echo "gh-pages não existe ainda, criando..."
+            git checkout --orphan gh-pages
+            git rm -rf .
+            echo "<html><body>init</body></html>" > index.html
+            git add index.html
+            git commit -m "init gh-pages"
             git push origin gh-pages
+            # volta pra main pra continuar
+            git checkout main
+          fi
+
+          # cria uma pasta temporária de deploy isolada
+          rm -rf deploy
+          mkdir deploy
+          cp -r public/* deploy/
+
+          cd deploy
+          git init
+          git remote add origin https://github.com/TGalter/autopost-site.git
+          git checkout -b gh-pages
+
+          git add .
+          git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          git push --force origin gh-pages
