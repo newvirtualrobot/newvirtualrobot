@@ -8,8 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // CONFIG BÁSICA DO SITE
-const SITE_URL = "https://SEU-USUARIO.github.io/NOME-REPO"; // <-- depois vamos substituir
-const SITE_NAME = "Meu Site";
+const SITE_URL = "https://tgalter.github.io/autopost-site";
+const SITE_NAME = "autopost-site";
 const PUBLIC_DIR = path.join(__dirname, "..", "public");
 const POSTS_DIR = path.join(PUBLIC_DIR, "posts");
 
