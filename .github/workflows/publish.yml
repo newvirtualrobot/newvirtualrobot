@@ -2,8 +2,11 @@ name: Build and Publish Daily
 
 on:
   schedule:
-    - cron: "0 6 * * *"  # todo dia às 06:00 UTC
+    - cron: "0 6 * * *"  # todo dia às 06:00 UTC (~03h BR)
   workflow_dispatch:
+
+permissions:
+  contents: write  # <-- isso dá permissão de push no repo
 
 jobs:
   build-and-deploy:
@@ -30,17 +33,16 @@ jobs:
         run: |
           npm run build-site
 
-      # A partir daqui, a gente faz o publish manualmente sem worktree
       - name: Deploy to gh-pages
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-            # configura git para commit automatizado
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
+          # configura identidade do commit
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            # se ainda não existe branch gh-pages no remoto, cria
-            if ! git ls-remote --exit-code origin gh-pages; then
+          # se a branch gh-pages ainda não existe no remoto, cria agora
+          if ! git ls-remote --exit-code origin gh-pages; then
             echo "gh-pages não existe ainda, criando..."
             git checkout --orphan gh-pages
             git rm -rf .
@@ -49,20 +51,20 @@ jobs:
             git commit -m "init gh-pages"
             git push https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
             git checkout main
-            fi
+          fi
 
-            # cria pasta limpa de deploy
-            rm -rf deploy
-            mkdir deploy
-            cp -r public/* deploy/
+          # prepara diretório limpo com os arquivos finais do site
+          rm -rf deploy
+          mkdir deploy
+          cp -r public/* deploy/
 
-            cd deploy
-            git init
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git checkout -b gh-pages
-            git add .
-            git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          cd deploy
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b gh-pages
+          git add .
+          git commit -m "publish: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
-            # push forçado pro branch gh-pages usando token
-            git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
+          # push forçado (branch gh-pages = site pronto)
+          git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
