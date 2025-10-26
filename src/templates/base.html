@@ -8,57 +8,19 @@
   <link rel="canonical" href="{{CANONICAL_URL}}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.*/css/pico.min.css">
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 16px;
-      line-height: 1.6;
-      color: #222;
-      background: #fff;
-    }
-    header, footer {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 24px;
-    }
-    header a, footer a {
-      color: #444;
-      text-decoration: none;
-    }
-    header nav a {
-      margin-right: 8px;
-      font-size: 0.85rem;
-    }
-    h1 {
-      font-size: 1.6rem;
-      line-height: 1.3;
-      margin: 0 0 12px 0;
-      color: #000;
-    }
-    h2 {
-      font-size: 1.2rem;
-      margin-top: 24px;
-      margin-bottom: 8px;
-      color: #000;
-    }
-    .post-meta {
-      font-size: .8rem;
-      color: #777;
-      margin-bottom: 20px;
-    }
+    /* Minimal overrides kept while Pico.css handles base styling */
     .ad-placeholder {
       border: 1px solid #ddd;
       background: #fafafa;
-      font-size: .8rem;
+      font-size: .9rem;
       text-align: center;
-      padding: 16px;
-      margin: 24px 0;
+      padding: 1rem;
+      margin: 1.5rem 0;
       color: #555;
     }
-    footer .footer-row {
-      margin-bottom: 6px;
-    }
+    .footer-row { margin-bottom: 0.5rem; }
+    /* keep container spacing modest if Pico container not used */
+    .container { max-width: 60rem; margin: 0 auto; padding: 1rem; }
   </style>
 
   <!-- Google Analytics 4 -->
