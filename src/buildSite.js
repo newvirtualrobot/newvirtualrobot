@@ -51,12 +51,12 @@ function renderFullPage(baseTpl, innerHtml, {
   isPost
 }) {
   const navLinks = isPost
-    ? `<a href="../index.html">Início</a> ·
-       <a href="../about.html">Sobre</a> ·
-       <a href="../privacy.html">Privacidade</a>`
-    : `<a href="./index.html">Início</a> ·
-       <a href="./about.html">Sobre</a> ·
-       <a href="./privacy.html">Privacidade</a>`;
+    ? `<ul class="nav"><li><a href="../index.html">Início</a></li>
+         <li><a href="../about.html">Sobre</a></li>
+         <li><a href="../privacy.html">Privacidade</a></li></ul>`
+    : `<ul class="nav"><li><a href="./index.html">Início</a></li>
+         <li><a href="./about.html">Sobre</a></li>
+         <li><a href="./privacy.html">Privacidade</a></li></ul>`;
 
   const footer_sitemap = isPost ? "../sitemap.xml" : "./sitemap.xml";
   const footer_rss     = isPost ? "../rss.xml"     : "./rss.xml";
