@@ -6,6 +6,7 @@
   <title>{{PAGE_TITLE}}</title>
   <meta name="description" content="{{PAGE_DESCRIPTION}}" />
   <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.*/css/pico.min.css">
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -73,15 +74,15 @@
   {{EXTRA_HEAD}}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3904139599523171"
      crossorigin="anonymous"></script>
-</head>
+  </head>
 <body>
-  <header>
+  <header class="container">
     <nav>
       {{NAV_LINKS}}
     </nav>
   </header>
 
-  <main>
+  <main class="container">
     {{CONTENT_TOP}}
 
     <div class="ad-placeholder">
@@ -91,7 +92,7 @@
     {{CONTENT_BOTTOM}}
   </main>
 
-  <footer>
+  <footer class="container">
     <div class="footer-row">© <span id="year"></span> {{SITE_NAME}}. Todos os direitos reservados.</div>
     <div class="footer-row">
       <a href="{{FOOTER_SITEMAP}}">Sitemap</a> ·
