@@ -49,7 +49,7 @@ jobs:
             echo "<html><body>init</body></html>" > index.html
             git add index.html
             git commit -m "init gh-pages"
-            git push https://x-access-token:${GITHUB_TOKEN}@github.com/TGalter/autopost-site.git gh-pages
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/newvirtualrobot/newvirtualrobot.git gh-pages
             git checkout main
           fi
 
