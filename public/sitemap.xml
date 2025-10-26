@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://SEU-USUARIO.github.io/NOME-REPO/index.html</loc>
+    <loc>https://tgalter.github.io/autopost-site/index.html</loc>
+    <lastmod>2025-10-26</lastmod>
   </url>
   <url>
-    <loc>https://SEU-USUARIO.github.io/NOME-REPO/about.html</loc>
+    <loc>https://tgalter.github.io/autopost-site/about.html</loc>
+    <lastmod>2025-10-26</lastmod>
   </url>
   <url>
-    <loc>https://SEU-USUARIO.github.io/NOME-REPO/privacy.html</loc>
+    <loc>https://tgalter.github.io/autopost-site/privacy.html</loc>
+    <lastmod>2025-10-26</lastmod>
   </url>
   <url>
-    <loc>https://SEU-USUARIO.github.io/NOME-REPO/posts/marketing-de-conteudo-a-estrategia-essencial-para-o-sucesso-digital.html</loc>
+    <loc>https://tgalter.github.io/autopost-site/posts/negocios-digitais-o-guia-completo-para-o-sucesso-online.html</loc>
+    <lastmod>2025-10-26</lastmod>
   </url>
   <url>
-    <loc>https://SEU-USUARIO.github.io/NOME-REPO/posts/desvende-a-otimizacao-de-seo-guia-completo-para-dominar-o-ranqueamento-online.html</loc>
+    <loc>https://tgalter.github.io/autopost-site/posts/marketing-de-conteudo-a-estrategia-essencial-para-o-sucesso-digital.html</loc>
+    <lastmod>2025-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://tgalter.github.io/autopost-site/posts/desvende-a-otimizacao-de-seo-guia-completo-para-dominar-o-ranqueamento-online.html</loc>
+    <lastmod>2025-10-26</lastmod>
   </url>
 </urlset>

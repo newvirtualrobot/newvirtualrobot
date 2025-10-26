@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>Meu Site</title>
-  <link>https://SEU-USUARIO.github.io/NOME-REPO</link>
-  <description>Meu Site</description>
+  <title>autopost-site</title>
+  <link>https://tgalter.github.io/autopost-site</link>
+  <description>autopost-site</description>
   
   <item>
+    <title><![CDATA[Negócios Digitais: O Guia Completo para o Sucesso Online]]></title>
+    <link>https://tgalter.github.io/autopost-site/posts/negocios-digitais-o-guia-completo-para-o-sucesso-online.html</link>
+    <guid>https://tgalter.github.io/autopost-site/posts/negocios-digitais-o-guia-completo-para-o-sucesso-online.html</guid>
+    <pubDate>Sun, 26 Oct 2025 03:54:10 GMT</pubDate>
+    <description><![CDATA[Negócios Digitais: O Guia Completo para o Sucesso Online]]></description>
+  </item>
+
+  <item>
     <title><![CDATA[Marketing de Conteúdo: A Estratégia Essencial para o Sucesso Digital]]></title>
-    <link>https://SEU-USUARIO.github.io/NOME-REPO/posts/marketing-de-conteudo-a-estrategia-essencial-para-o-sucesso-digital.html</link>
-    <guid>https://SEU-USUARIO.github.io/NOME-REPO/posts/marketing-de-conteudo-a-estrategia-essencial-para-o-sucesso-digital.html</guid>
-    <pubDate>Sun, 26 Oct 2025 02:00:48 GMT</pubDate>
+    <link>https://tgalter.github.io/autopost-site/posts/marketing-de-conteudo-a-estrategia-essencial-para-o-sucesso-digital.html</link>
+    <guid>https://tgalter.github.io/autopost-site/posts/marketing-de-conteudo-a-estrategia-essencial-para-o-sucesso-digital.html</guid>
+    <pubDate>Sun, 26 Oct 2025 03:54:10 GMT</pubDate>
     <description><![CDATA[Marketing de Conteúdo: A Estratégia Essencial para o Sucesso Digital]]></description>
   </item>
 
   <item>
     <title><![CDATA[Desvende a Otimização de SEO: Guia Completo para Dominar o Ranqueamento Online]]></title>
-    <link>https://SEU-USUARIO.github.io/NOME-REPO/posts/desvende-a-otimizacao-de-seo-guia-completo-para-dominar-o-ranqueamento-online.html</link>
-    <guid>https://SEU-USUARIO.github.io/NOME-REPO/posts/desvende-a-otimizacao-de-seo-guia-completo-para-dominar-o-ranqueamento-online.html</guid>
-    <pubDate>Sun, 26 Oct 2025 02:00:48 GMT</pubDate>
+    <link>https://tgalter.github.io/autopost-site/posts/desvende-a-otimizacao-de-seo-guia-completo-para-dominar-o-ranqueamento-online.html</link>
+    <guid>https://tgalter.github.io/autopost-site/posts/desvende-a-otimizacao-de-seo-guia-completo-para-dominar-o-ranqueamento-online.html</guid>
+    <pubDate>Sun, 26 Oct 2025 03:54:10 GMT</pubDate>
     <description><![CDATA[Desvende a Otimização de SEO: Guia Completo para Dominar o Ranqueamento Online]]></description>
   </item>
 </channel>

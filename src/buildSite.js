@@ -87,23 +87,44 @@ async function buildIndex(postsMeta, baseTpl) {
 
 // gera/atualiza sitemap.xml
 async function buildSitemap(postsMeta) {
+  // postsMeta = [{ title, url, dateISO, dateHuman }]
+
+  // monta todas as URLs do site
   const urls = [
-    `${SITE_URL}/index.html`,
-    `${SITE_URL}/about.html`,
-    `${SITE_URL}/privacy.html`,
-    ...postsMeta.map(p => SITE_URL + p.url),
+    {
+      loc: `${SITE_URL}/index.html`,
+      lastmod: new Date().toISOString().split("T")[0],
+    },
+    {
+      loc: `${SITE_URL}/about.html`,
+      lastmod: new Date().toISOString().split("T")[0],
+    },
+    {
+      loc: `${SITE_URL}/privacy.html`,
+      lastmod: new Date().toISOString().split("T")[0],
+    },
+    ...postsMeta.map(p => ({
+      loc: SITE_URL + p.url,
+      // p.dateISO vem de loadExistingPostsMeta; se não tiver data por post,
+      // a gente cai pra hoje, só pra satisfazer o Google.
+      lastmod: (p.dateISO || new Date().toISOString())
+        .split("T")[0],
+    })),
   ];
 
+  // gera o XML final com header e lastmod
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls
   .map(
     u => `  <url>
-    <loc>${u}</loc>
+    <loc>${u.loc}</loc>
+    <lastmod>${u.lastmod}</lastmod>
   </url>`
   )
   .join("\n")}
-</urlset>`;
+</urlset>
+`;
 
   await fs.writeFile(path.join(PUBLIC_DIR, "sitemap.xml"), xml, "utf8");
 }
