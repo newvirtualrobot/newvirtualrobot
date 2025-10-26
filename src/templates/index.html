@@ -1,0 +1,15 @@
+<h1><%= siteName %></h1>
+<p>Artigos diários otimizados para SEO.</p>
+
+<ul>
+    <% if (posts && posts.length > 0) { %>
+        <% posts.slice(0, 20).forEach(post => { %>
+            <li>
+                <a href="/posts/<%= post.slug %>"><%= post.title %></a>
+                — <small><%= post.date %></small>
+            </li>
+        <% }) %>
+    <% } else { %>
+        <li><em>Sem posts ainda. Volte amanhã.</em></li>
+    <% } %>
+</ul>

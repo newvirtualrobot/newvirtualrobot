@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{PAGE_DESCRIPTION}}" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+    }
+    header, footer {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 24px;
+    }
+    header a, footer a {
+      color: #444;
+      text-decoration: none;
+    }
+    h1 {
+      font-size: 1.6rem;
+      line-height: 1.3;
+      margin: 0 0 12px 0;
+      color: #000;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: #000;
+    }
+    .post-meta {
+      font-size: .8rem;
+      color: #777;
+      margin-bottom: 20px;
+    }
+    .ad-placeholder {
+      border: 1px solid #ccc;
+      background: #f8f8f8;
+      font-size: .8rem;
+      text-align: center;
+      padding: 16px;
+      margin: 24px 0;
+      color: #444;
+    }
+    nav a {
+      margin-right: 8px;
+      font-size: 0.85rem;
+    }
+  </style>
+  {{EXTRA_HEAD}}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/index.html">Início</a> ·
+      <a href="/about.html">Sobre</a> ·
+      <a href="/privacy.html">Privacidade</a>
+    </nav>
+  </header>
+
+  <main>
+    {{CONTENT_TOP}}
+
+    <!-- Bloco de anúncio (placeholder) -->
+    <div class="ad-placeholder">
+      Espaço para anúncio
+      <!-- Depois trocamos isso por script do AdSense -->
+    </div>
+
+    {{CONTENT_BOTTOM}}
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> {{SITE_NAME}}. Todos os direitos reservados.</div>
+    <div><a href="/sitemap.xml">Sitemap</a> · <a href="/rss.xml">RSS</a></div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

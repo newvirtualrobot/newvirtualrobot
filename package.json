@@ -1,0 +1,29 @@
+{
+  "name": "autopost-site",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/generatePost.js",
+    "gen": "node src/generatePost.js",
+    "build-site": "node src/buildSite.js",
+  "serve": "http-server public -p 8080 --cors"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/genai": "^1.27.0",
+    "@google/generative-ai": "^0.24.1",
+    "dayjs": "^1.11.18",
+    "dotenv": "^17.2.3",
+    "fs-extra": "^11.3.2",
+    "marked": "^16.4.1",
+    "openai": "^6.7.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
